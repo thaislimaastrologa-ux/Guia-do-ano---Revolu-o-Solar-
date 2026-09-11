@@ -54,7 +54,7 @@
   .thread .fill{position:absolute; left:0; top:0; width:100%; height:0; background:var(--ac); border-radius:2px; transition:height .12s linear}
   .beat{position:relative; margin:0 0 34px; opacity:1; transform:none}
   html.js .beat{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease}
-  .beat.in{opacity:1; transform:none}
+  .beat.in, html.js .beat.in{opacity:1; transform:none}
   .beat::before{content:""; position:absolute; left:-30px; top:12px; width:11px; height:11px; background:var(--papel); border:2px solid var(--ac); border-radius:50%; box-shadow:0 0 0 4px var(--papel)}
   .beat.mark::before{background:var(--ac)}
   .beat .lead{font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ac); display:block; margin:0 0 7px}
