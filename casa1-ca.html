@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.className+=' js';</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F5EEDE">
+<title>Casa 1, a porta de entrada · Cristiane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light only;
+    --papel:#F5EEDE; --papel2:#EFE5D0; --papel3:#EADFC6;
+    --tinta:#2C2114; --tinta2:#5E4E3A; --tinta3:#8A785F;
+    --ac:#B5673A; --ac-soft:#B5673A2E;
+    --linha:#B5673A4D;
+    --rosa:#9C5257;
+    --display:'Fraunces',Georgia,serif; --corpo:'Newsreader',Georgia,serif; --mono:'Spline Sans Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--papel); color:var(--tinta); font-family:var(--corpo); font-size:18px; line-height:1.72; overflow-x:hidden;
+    background-image:radial-gradient(1100px 460px at 80% -8%, var(--ac-soft), transparent 62%),
+      radial-gradient(820px 400px at 6% 106%, rgba(94,78,58,.08), transparent 60%);
+  }
+  .wrap{max-width:640px; margin:0 auto; padding:0 22px 90px}
+
+  .hero{padding:60px 0 28px}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--ac); margin-bottom:20px}
+  .hero h1{font-family:var(--display); font-weight:500; font-size:clamp(40px,12vw,58px); line-height:1.03; letter-spacing:-.015em}
+  .hero h1 em{font-style:italic; color:var(--ac)}
+  .hero .sub{font-size:19px; color:var(--tinta2); margin:16px 0 0; max-width:36ch}
+  .keys{display:flex; gap:8px; flex-wrap:wrap; margin:22px 0 0}
+  .keys span{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--tinta2); border:1px solid var(--linha); border-radius:100px; padding:7px 13px; background:rgba(255,255,255,.35)}
+  .ascline{font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--ac); margin:24px 0 0; display:flex; align-items:center; gap:9px}
+  .ascline .glyph{font-size:18px}
+
+  .selo-toggle{margin:24px 0 0; font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--tinta3); background:none; border:1px dashed var(--linha); border-radius:100px; padding:9px 15px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:.2s}
+  .selo-toggle:hover{color:var(--ac)}
+  .selo-toggle .pl{transition:transform .3s}
+  .selo-toggle.open .pl{transform:rotate(45deg)}
+  .selo{max-height:none; overflow:visible}
+  html.js .selo{max-height:0; overflow:hidden; transition:max-height .45s ease}
+  html:not(.js) .selo-toggle{display:none}
+  .selo-in{margin:14px 0 0; padding:16px 18px; background:var(--papel3); border-radius:14px; border:1px solid var(--linha); font-family:var(--mono); font-size:12.5px; line-height:1.9; color:var(--tinta2)}
+  .selo-in b{color:var(--ac); font-weight:500}
+
+  .roteiro{position:relative; margin:44px 0 0; padding-left:30px}
+  .thread{position:absolute; left:6px; top:6px; bottom:0; width:2px; background:var(--linha); border-radius:2px}
+  .thread .fill{position:absolute; left:0; top:0; width:100%; height:0; background:var(--ac); border-radius:2px; transition:height .12s linear}
+  .beat{position:relative; margin:0 0 34px; opacity:1; transform:none}
+  html.js .beat{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease}
+  .beat.in{opacity:1; transform:none}
+  .beat::before{content:""; position:absolute; left:-30px; top:12px; width:11px; height:11px; background:var(--papel); border:2px solid var(--ac); border-radius:50%; box-shadow:0 0 0 4px var(--papel)}
+  .beat.mark::before{background:var(--ac)}
+  .beat .lead{font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ac); display:block; margin:0 0 7px}
+  .beat p{font-size:18px; line-height:1.74}
+
+  .mirror{margin:8px 0 0; padding:20px 22px; border-radius:16px; background:linear-gradient(180deg, rgba(156,82,87,.09), rgba(156,82,87,.04)); border:1px solid rgba(156,82,87,.24)}
+  .mirror .ml{font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--rosa); display:block; margin:0 0 8px}
+  .mirror p{margin:0; font-family:var(--display); font-style:italic; font-weight:400; font-size:20px; line-height:1.4}
+  .mirror p::before{content:"\201C"}
+  .mirror p::after{content:"\201D"}
+
+  .camadas{margin:40px 0 0}
+  .camadas-lead{font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--ac); margin:0 0 4px}
+  .camadas-sub{font-size:16px; color:var(--tinta2); margin:0 0 18px}
+  .fold{border:1px solid var(--linha); border-radius:16px; background:var(--papel2); margin:0 0 12px; overflow:hidden}
+  .fold-head{width:100%; text-align:left; background:none; border:0; cursor:pointer; display:flex; align-items:center; gap:14px; padding:18px; font-family:inherit}
+  .fold-glyph{flex:0 0 auto; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font-size:16px; color:var(--ac); background:var(--ac-soft); border:1px solid var(--linha)}
+  .fold-t{flex:1; min-width:0}
+  .fold-t .nm{font-family:var(--display); font-weight:500; font-size:19px; line-height:1.2}
+  .fold-t .tz{font-size:14.5px; color:var(--tinta2); margin-top:2px}
+  .chev{flex:0 0 auto; color:var(--ac); font-size:20px; transition:transform .3s}
+  .fold.open .chev{transform:rotate(90deg)}
+  .fold-body{max-height:none; overflow:visible}
+  html.js .fold-body{max-height:0; overflow:hidden; transition:max-height .5s ease}
+  .fold-in{padding:2px 20px 20px}
+  .rows{list-style:none; margin:6px 0 0; padding:0}
+  .rows li{position:relative; padding:11px 0 11px 24px; border-top:1px solid var(--linha); font-size:16.5px; line-height:1.55}
+  .rows li:first-child{border-top:0}
+  .rows li::before{content:""; position:absolute; left:2px; top:19px; width:7px; height:7px; border-radius:50%; background:var(--ac)}
+  .fold.perg .rows li{font-family:var(--display); font-style:italic; font-size:17.5px}
+
+  .pread p{margin:0 0 10px; font-size:16px}
+  .pread p:last-child{margin-bottom:0}
+  .psel{font-family:var(--mono); font-size:12px; color:var(--tinta3); background:var(--papel3); border-radius:10px; padding:10px 12px; margin:0 0 12px; line-height:1.7}
+  .pperg{margin-top:12px; font-family:var(--display); font-style:italic; font-size:16.5px; color:var(--tinta)}
+  .pperg-l{display:block; font-family:var(--mono); font-style:normal; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ac); margin-bottom:4px}
+
+  .grupo{margin:48px 0 0; background:var(--papel2); border:1px solid var(--linha); border-radius:20px; padding:22px 18px 20px}
+  .grupo-lbl{font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--ac); margin-bottom:4px}
+  .grupo-h{font-family:var(--display); font-weight:500; font-size:26px; letter-spacing:-.01em}
+  .grupo-sub{font-size:15.5px; color:var(--tinta2); margin:8px 0 18px}
+  .gcard{background:var(--papel); border:1px solid var(--linha); border-radius:14px; padding:15px 15px; margin-bottom:11px}
+  .gq{font-family:var(--display); font-size:17.5px; margin-bottom:4px}
+  .gcard textarea{width:100%; font-family:var(--corpo); font-size:16px; color:var(--tinta); background:var(--papel3); border:1px solid var(--linha); border-radius:11px; padding:11px 12px; resize:vertical; min-height:60px; line-height:1.5; margin-top:6px}
+  .gcard textarea:focus{outline:none; border-color:var(--ac)}
+  .copybar{display:flex; align-items:center; gap:12px; margin-top:6px}
+  .copybtn{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--ac); border:0; border-radius:100px; padding:13px 20px; cursor:pointer; transition:.18s}
+  .copybtn:active{transform:scale(.96)}
+  .saved{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--tinta3)}
+
+  .fecho{margin:44px 0 0; text-align:center}
+  .fecho .om{font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--ac); margin:0 0 14px}
+  .fecho p{font-family:var(--display); font-style:italic; font-size:21px; line-height:1.5; margin:0 auto; max-width:32ch}
+  .assin{font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--tinta3); text-align:center; margin:40px 0 0}
+  .dot-sep{color:var(--ac); margin:0 6px}
+
+  @media (prefers-reduced-motion: reduce){.beat{opacity:1;transform:none;transition:none}.thread .fill{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Revolução Solar 2026 · Área 1 de 12</p>
+    <h1>A porta,<br><em>duas versões</em></h1>
+    <p class="sub">O jeito que nasceu com você, e o jeito que este ano está pedindo.</p>
+    <div class="keys"><span>identidade</span><span>exposição</span><span>coragem</span></div>
+    <p class="ascline"><span class="glyph">♐</span> Ascendente natal em Virgem, revolução do ano em Sagitário</p>
+
+    <button class="selo-toggle" id="seloBtn" aria-expanded="false">
+      <span class="pl">+</span> ver o mapa por trás
+    </button>
+    <div class="selo" id="selo"><div class="selo-in">
+      <b>Ascendente natal</b> Virgem, em quadratura fechada com o próprio Mercúrio (regente do ano) e com Quíron, em oposição ao Nodo Norte, em trígono com Júpiter<br>
+      <b>Mercúrio natal</b> junto de Vênus e Quíron, em oposição a Urano, casa 9<br>
+      <b>Lilith natal</b> em quadratura exata com o Sol, casa 12<br>
+      <b>A revolução 2026</b> traz o Ascendente pra Sagitário, reativando essa mesma oposição com Mercúrio<br>
+      <b>Lilith</b> ocupa a casa 1 da revolução, em oposição ao Mercúrio do ano, em harmonia com a Lua e com Saturno<br>
+      <b>Esse Ascendente do ano</b> cai na casa 3 natal, dominada pelo mesmo signo Sagitário, a mesma casa que a profecção ativa este ano
+    </div></div>
+  </header>
+
+  <section class="roteiro" id="roteiro">
+    <div class="thread"><div class="fill" id="fill"></div></div>
+
+    <article class="beat">
+      <span class="lead">quem você é, na prática</span>
+      <p>No dia a dia isso aparece assim: você relê a mensagem antes de mandar, nota o detalhe que passou despercebido pros outros, sente que precisa merecer o espaço antes de ocupar ele. Não é insegurança, é um cuidado que virou vigilância: uma parte sua sempre fica de fora observando se está tudo certo antes de deixar o resto entrar em cena.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">por que isso cai direto na sua voz</span>
+      <p>Esse cuidado não nasce solto, ele nasce puxado por um atrito que é seu desde sempre: o exato ponto em que você entra no mundo empurra direto pra dentro da sua voz, o jeito que você pensa e fala. Não é coincidência, é o mesmo eixo do seu mapa, então toda vez que você se apresenta, uma parte sua já antecipa o julgamento antes mesmo de abrir a boca. Essa voz mora longe daqui, no lugar de aparecer pro mundo, de ensinar, de se posicionar, carregando uma marca de ter se expressado sem ser bem recebida, e puxada ao mesmo tempo por uma vontade de romper com o que se espera de você. Duas forças empurrando pro mesmo lugar, uma pedindo silêncio, outra pedindo ruptura. E esse mesmo ponto de entrada toca essa ferida antiga diretamente, não é só a fala que trava. É a sua imagem de quem você é quando está prestes a aparecer, a sensação de estar pronta ou não pra ocupar espaço, que já vem abalada antes mesmo de você dizer qualquer palavra.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">o padrão que virou zona de conforto</span>
+      <p>Tem mais uma camada: esse jeito de sempre, esse cuidado todo revisado, é praticamente o oposto do caminho que o seu próprio mapa aponta como crescimento. Continuar revisando pra sempre é ficar no lugar mais confortável, mas cada vez mais longe de quem você está sendo chamada a se tornar.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">o respiro que já existe</span>
+      <p>Nem tudo aqui pesa. Esse mesmo ponto de entrada também conversa fácil com a sua fé, aquela parte sua que confia mesmo sem ter tudo sob controle. É provavelmente esse mesmo lugar que já te aproxima da busca por espiritualidade e autoconhecimento que você marcou como algo vivo agora. Quando você se permite confiar assim, mesmo que só um pouco, as coisas tendem a te surpreender numa direção boa.</p>
+    </article>
+
+    <article class="beat mark">
+      <span class="lead">o que o céu ativa este ano</span>
+      <p>É esse mesmo eixo que o céu escolhe reacender em 2026. O ponto em que você entra o ano muda de sinal, vai pro fogo, forte vontade de agir sem pedir licença. E como ele cai de novo exatamente na posição da sua voz, o convite é concreto: dizer a coisa incompleta em vez de esperar ela ficar perfeita, mostrar o trabalho antes de revisar pela quinta vez, ocupar o espaço mesmo sentindo que ainda não mereceu. Não é uma lição nova pra aprender, é uma ação que você já sabe fazer e vem adiando, só que este ano ela pede pra ser praticada com mais frequência e mais coragem.</p>
+    </article>
+
+    <article class="beat mark">
+      <span class="lead">onde isso pede movimento de fato</span>
+      <p>Esse mesmo ponto do ano cai numa área concreta do seu mapa de nascença: a das trocas mais próximas, dos irmãos, das conversas do dia a dia. Não é força de expressão, o próprio signo que domina essa área do seu mapa é o mesmo que rege a sua entrada este ano, e o planeta que cuida dela mora na parte do seu mapa que fala do que se compartilha e do que não se resolve sozinha. Isso explica por que o que você mais deseja pra sua irmã não está nas suas mãos, mas explica também que o seu trabalho de se expor mais este ano tem endereço real: ele mora exatamente nessas trocas mais próximas, não numa plateia distante.</p>
+    </article>
+
+    <div class="mirror">
+      <span class="ml">o teu espelho</span>
+      <p>Se eu disser o que penso de verdade, vou incomodar justamente quem eu mais quero por perto</p>
+    </div>
+  </section>
+
+  <section class="camadas">
+    <p class="camadas-lead">abre cada camada</p>
+    <p class="camadas-sub">Toque pra abrir. O que pode acontecer, o que cuidar, e as perguntas pra levar com você.</p>
+
+    <div class="fold pos">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">✦</span>
+        <span class="fold-t"><span class="nm">As possibilidades</span><span class="tz">Cenários que este ano pode abrir</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>Deixar o cuidado e a coragem andarem juntos, sem precisar escolher só um dos dois.</li>
+        <li>Falar a verdade primeiro com quem já é de casa, antes de tentar isso com desconhecidos, porque é ali que o mapa está te chamando este ano.</li>
+        <li>Usar a sua fé como apoio justamente nos momentos em que o medo de falar ficar mais forte, em vez de tentar vencer isso sozinha.</li>
+      </ul></div></div>
+    </div>
+
+    <div class="fold des">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">□</span>
+        <span class="fold-t"><span class="nm">Os desafios a cuidar</span><span class="tz">Onde essa energia pode te enrolar</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>O padrão de começar e não terminar nasce exatamente aqui, o jeito seguro de nunca precisar aparecer pronta.</li>
+        <li>Balançar entre travar demais e depois soltar rápido demais, sem meio-termo, porque as duas energias do ano puxam pra lados opostos.</li>
+        <li>Confundir cuidar dos outros com se esconder atrás deles, principalmente nas trocas mais próximas.</li>
+        <li>Esperar alguém dizer "pode falar" antes de se manifestar, numa reunião, numa conversa de família, num grupo, quando ninguém tirou essa permissão de você, você que guardou ela.</li>
+      </ul></div></div>
+    </div>
+
+    <div class="fold perg">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">☾</span>
+        <span class="fold-t"><span class="nm">As perguntas pra se fazer</span><span class="tz">Pra levar com você</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>O que eu ainda estou revisando, que já está pronto pra sair de mim?</li>
+        <li>Nas minhas trocas mais próximas, o que eu calo com medo de pesar pro outro?</li>
+        <li>Se eu confiasse mais e controlasse menos, o que eu deixaria de fazer sozinha?</li>
+      </ul></div></div>
+    </div>
+
+    <div class="fold dev">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">✎</span>
+        <span class="fold-t"><span class="nm">Um movimento pra este ano</span><span class="tz">Pra colocar em prática</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>Escolha uma coisa pequena que você vem adiando por não estar pronta, e mostre assim mesmo, incompleta, pra alguém de casa este mês. Repare o que o corpo faz antes e depois.</li>
+        <li>Quando perceber que está revisando por medo, e não por necessidade real, pare e mostre do jeito que está.</li>
+        <li>Escolha uma pessoa próxima que você sente que essa aproximação vai libertar algo em você, e compartilhe com ela algo que normalmente você guardaria pra não incomodar.</li>
+      </ul></div></div>
+    </div>
+  </section>
+
+  <section class="camadas segunda">
+    <p class="camadas-lead">quem mora aqui</p>
+    <p class="camadas-sub">Toque pra abrir.</p>
+
+    <div class="fold planeta">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">⚸</span>
+        <span class="fold-t"><span class="nm">Lilith, a moradora deste ano</span><span class="tz">O único corpo que ocupa esta casa na revolução de 2026</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in">
+        <div class="psel">Lilith natal em quadratura exata com o Sol, casa 12; na revolução 2026 ela ocupa a casa 1, em oposição ao Mercúrio do ano, em harmonia com a Lua e com Saturno</div>
+        <div class="pread">
+          <p>Ela é a parte sua que não se edita pra ser aceita, e desde que você nasceu vive em atrito direto com a sua própria identidade, o seu Sol. Por isso aprendeu a ficar quieta a vida toda.</p>
+          <p>Este ano ela é a única presença que mora de fato no seu ponto de entrada, e chega com um recado específico. Ainda esbarra na sua voz, então dizer a verdade vai custar algum desconforto, isso não muda. Mas tem a seu favor duas coisas raras, a sua emoção e a sua maturidade caminhando ao lado dela. O que ela pede não é gritar sem pensar, é confiar no que você sente e no que você já amadureceu, pra sustentar a verdade mesmo sabendo que ainda vai doer um pouco dizer.</p>
+        </div>
+        <div class="pperg"><span class="pperg-l">a pergunta que ela faz</span>O que eu faria diferente esse ano se eu confiasse mais no que sinto do que no que os outros vão achar?</div>
+      </div></div>
+    </div>
+  </section>
+
+
+  <section class="grupo">
+    <p class="grupo-lbl">leve pro grupo</p>
+    <h2 class="grupo-h">A dinâmica da semana</h2>
+    <p class="grupo-sub">Escreve aqui embaixo e toque em copiar, pra colar na nossa conversa.</p>
+
+    <div class="gcard"><p class="gq">1. Qual frase desta página mais bateu em você?</p><textarea data-k="q1" placeholder="a frase entre aspas, ou outra que ficou na sua cabeça"></textarea></div>
+    <div class="gcard"><p class="gq">2. Onde você vê essa energia na sua vida hoje, e há quanto tempo ela se repete assim?</p><textarea data-k="q2" placeholder="uma situação real, recente, e desde quando você percebe esse mesmo padrão"></textarea></div>
+    <div class="gcard"><p class="gq">3. Esta semana, mostre uma coisa incompleta pra alguém de confiança antes de achar que está pronta. O que você vai mostrar?</p><textarea data-k="q3" placeholder="o que é, e pra quem você vai mostrar"></textarea></div>
+
+    <div class="copybar">
+      <button class="copybtn" id="copy">copiar pra enviar</button>
+      <span class="saved" id="saved"></span>
+    </div>
+  </section>
+
+  <div class="fecho">
+    <p class="om">pra levar com você</p>
+    <p>Da próxima vez que você segurar uma verdade só pra não incomodar alguém que você ama, o que essa escolha te custa por dentro?</p>
+  </div>
+
+  <p class="assin">Cristiane <span class="dot-sep">·</span> Revolução Solar 2026 <span class="dot-sep">·</span> Casa 1</p>
+
+</div>
+
+<script>
+  (function(){
+    var b=document.getElementById('seloBtn'),s=document.getElementById('selo');
+    b.addEventListener('click',function(){
+      var o=b.classList.toggle('open');
+      b.setAttribute('aria-expanded',o);
+      s.style.maxHeight=o?s.scrollHeight+'px':'0px';
+    });
+  })();
+  (function(){
+    document.querySelectorAll('.fold').forEach(function(f){
+      var h=f.querySelector('.fold-head'),bd=f.querySelector('.fold-body');
+      h.addEventListener('click',function(){
+        var o=f.classList.toggle('open');
+        h.setAttribute('aria-expanded',o);
+        bd.style.maxHeight=o?bd.scrollHeight+'px':'0px';
+      });
+    });
+  })();
+  (function(){
+    var bs=document.querySelectorAll('.beat');
+    function rev(el){el.classList.add('in');}
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){rev(e.target);io.unobserve(e.target);}});},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+      bs.forEach(function(b){io.observe(b);});
+    } else { bs.forEach(rev); }
+    function seen(){var vh=window.innerHeight||document.documentElement.clientHeight;bs.forEach(function(b){if(b.getBoundingClientRect().top<vh*0.98)rev(b);});}
+    window.addEventListener('load',function(){setTimeout(seen,150);});
+    setTimeout(seen,700);
+
+    var sec=document.getElementById('roteiro'),fill=document.getElementById('fill'),t=false;
+    function u(){
+      var r=sec.getBoundingClientRect(),vh=window.innerHeight||document.documentElement.clientHeight,tot=r.height,p=Math.min(Math.max(vh*0.62-r.top,0),tot);
+      fill.style.height=(tot>0?p/tot*100:0).toFixed(1)+'%';
+      t=false;
+    }
+    function o(){if(!t){requestAnimationFrame(u);t=true;}}
+    window.addEventListener('scroll',o,{passive:true});
+    window.addEventListener('resize',o,{passive:true});
+    u();
+  })();
+  (function(){
+    var sv=document.getElementById('saved');
+    document.getElementById('copy').addEventListener('click',function(){
+      var out=['Casa 1, a porta de entrada:',''];
+      document.querySelectorAll('.grupo .gcard').forEach(function(c){
+        var q=c.querySelector('.gq').textContent,a=c.querySelector('textarea').value.trim();
+        out.push(q);
+        out.push(a?a:'(não escrevi nada aqui)');
+        out.push('');
+      });
+      var txt=out.join('\n');
+      function done(){sv.textContent='copiado';setTimeout(function(){sv.textContent='';},1800);}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,done);}
+      else{var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(t);done();}
+    });
+  })();
+</script>
+</body>
+</html>
