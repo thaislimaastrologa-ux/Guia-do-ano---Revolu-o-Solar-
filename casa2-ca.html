@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.className+=' js';</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F5EEDE">
+<title>Casa 2, segurança e valor · Cristiane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light only;
+    --papel:#F5EEDE; --papel2:#EFE5D0; --papel3:#EADFC6;
+    --tinta:#2C2114; --tinta2:#5E4E3A; --tinta3:#8A785F;
+    --ac:#6E7A3E; --ac-soft:#6E7A3E2E;
+    --linha:#6E7A3E4D;
+    --rosa:#9C5257;
+    --display:'Fraunces',Georgia,serif; --corpo:'Newsreader',Georgia,serif; --mono:'Spline Sans Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--papel); color:var(--tinta); font-family:var(--corpo); font-size:18px; line-height:1.72; overflow-x:hidden;
+    background-image:radial-gradient(1100px 460px at 80% -8%, var(--ac-soft), transparent 62%),
+      radial-gradient(820px 400px at 6% 106%, rgba(94,78,58,.08), transparent 60%);
+  }
+  .wrap{max-width:640px; margin:0 auto; padding:0 22px 90px}
+
+  .hero{padding:60px 0 28px}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--ac); margin-bottom:20px}
+  .hero h1{font-family:var(--display); font-weight:500; font-size:clamp(40px,12vw,58px); line-height:1.03; letter-spacing:-.015em}
+  .hero h1 em{font-style:italic; color:var(--ac)}
+  .hero .sub{font-size:19px; color:var(--tinta2); margin:16px 0 0; max-width:36ch}
+  .keys{display:flex; gap:8px; flex-wrap:wrap; margin:22px 0 0}
+  .keys span{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--tinta2); border:1px solid var(--linha); border-radius:100px; padding:7px 13px; background:rgba(255,255,255,.35)}
+  .ascline{font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--ac); margin:24px 0 0; display:flex; align-items:center; gap:9px}
+  .ascline .glyph{font-size:18px}
+
+  .selo-toggle{margin:24px 0 0; font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--tinta3); background:none; border:1px dashed var(--linha); border-radius:100px; padding:9px 15px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:.2s}
+  .selo-toggle:hover{color:var(--ac)}
+  .selo-toggle .pl{transition:transform .3s}
+  .selo-toggle.open .pl{transform:rotate(45deg)}
+  .selo{max-height:none; overflow:visible}
+  html.js .selo{max-height:0; overflow:hidden; transition:max-height .45s ease}
+  html:not(.js) .selo-toggle{display:none}
+  .selo-in{margin:14px 0 0; padding:16px 18px; background:var(--papel3); border-radius:14px; border:1px solid var(--linha); font-family:var(--mono); font-size:12.5px; line-height:1.9; color:var(--tinta2)}
+  .selo-in b{color:var(--ac); font-weight:500}
+
+  .roteiro{position:relative; margin:44px 0 0; padding-left:30px}
+  .thread{position:absolute; left:6px; top:6px; bottom:0; width:2px; background:var(--linha); border-radius:2px}
+  .thread .fill{position:absolute; left:0; top:0; width:100%; height:0; background:var(--ac); border-radius:2px; transition:height .12s linear}
+  .beat{position:relative; margin:0 0 34px; opacity:1; transform:none}
+  html.js .beat{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease}
+  .beat.in, html.js .beat.in{opacity:1; transform:none}
+  .beat::before{content:""; position:absolute; left:-30px; top:12px; width:11px; height:11px; background:var(--papel); border:2px solid var(--ac); border-radius:50%; box-shadow:0 0 0 4px var(--papel)}
+  .beat.mark::before{background:var(--ac)}
+  .beat .lead{font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ac); display:block; margin:0 0 7px}
+  .beat p{font-size:18px; line-height:1.74}
+
+  .mirror{margin:8px 0 0; padding:20px 22px; border-radius:16px; background:linear-gradient(180deg, rgba(156,82,87,.09), rgba(156,82,87,.04)); border:1px solid rgba(156,82,87,.24)}
+  .mirror .ml{font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--rosa); display:block; margin:0 0 8px}
+  .mirror p{margin:0; font-family:var(--display); font-style:italic; font-weight:400; font-size:20px; line-height:1.4}
+  .mirror p::before{content:"\201C"}
+  .mirror p::after{content:"\201D"}
+
+  .camadas{margin:40px 0 0}
+  .camadas-lead{font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--ac); margin:0 0 4px}
+  .camadas-sub{font-size:16px; color:var(--tinta2); margin:0 0 18px}
+  .fold{border:1px solid var(--linha); border-radius:16px; background:var(--papel2); margin:0 0 12px; overflow:hidden}
+  .fold-head{width:100%; text-align:left; background:none; border:0; cursor:pointer; display:flex; align-items:center; gap:14px; padding:18px; font-family:inherit}
+  .fold-glyph{flex:0 0 auto; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font-size:16px; color:var(--ac); background:var(--ac-soft); border:1px solid var(--linha)}
+  .fold-t{flex:1; min-width:0}
+  .fold-t .nm{font-family:var(--display); font-weight:500; font-size:19px; line-height:1.2}
+  .fold-t .tz{font-size:14.5px; color:var(--tinta2); margin-top:2px}
+  .chev{flex:0 0 auto; color:var(--ac); font-size:20px; transition:transform .3s}
+  .fold.open .chev{transform:rotate(90deg)}
+  .fold-body{max-height:none; overflow:visible}
+  html.js .fold-body{max-height:0; overflow:hidden; transition:max-height .5s ease}
+  .fold-in{padding:2px 20px 20px}
+  .rows{list-style:none; margin:6px 0 0; padding:0}
+  .rows li{position:relative; padding:11px 0 11px 24px; border-top:1px solid var(--linha); font-size:16.5px; line-height:1.55}
+  .rows li:first-child{border-top:0}
+  .rows li::before{content:""; position:absolute; left:2px; top:19px; width:7px; height:7px; border-radius:50%; background:var(--ac)}
+  .fold.perg .rows li{font-family:var(--display); font-style:italic; font-size:17.5px}
+
+  .pread p{margin:0 0 10px; font-size:16px}
+  .pread p:last-child{margin-bottom:0}
+  .psel{font-family:var(--mono); font-size:12px; color:var(--tinta3); background:var(--papel3); border-radius:10px; padding:10px 12px; margin:0 0 12px; line-height:1.7}
+  .pperg{margin-top:12px; font-family:var(--display); font-style:italic; font-size:16.5px; color:var(--tinta)}
+  .pperg-l{display:block; font-family:var(--mono); font-style:normal; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ac); margin-bottom:4px}
+
+  .grupo{margin:48px 0 0; background:var(--papel2); border:1px solid var(--linha); border-radius:20px; padding:22px 18px 20px}
+  .grupo-lbl{font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--ac); margin-bottom:4px}
+  .grupo-h{font-family:var(--display); font-weight:500; font-size:26px; letter-spacing:-.01em}
+  .grupo-sub{font-size:15.5px; color:var(--tinta2); margin:8px 0 18px}
+  .gcard{background:var(--papel); border:1px solid var(--linha); border-radius:14px; padding:15px 15px; margin-bottom:11px}
+  .gq{font-family:var(--display); font-size:17.5px; margin-bottom:4px}
+  .gcard textarea{width:100%; font-family:var(--corpo); font-size:16px; color:var(--tinta); background:var(--papel3); border:1px solid var(--linha); border-radius:11px; padding:11px 12px; resize:vertical; min-height:60px; line-height:1.5; margin-top:6px}
+  .gcard textarea:focus{outline:none; border-color:var(--ac)}
+  .copybar{display:flex; align-items:center; gap:12px; margin-top:6px}
+  .copybtn{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--ac); border:0; border-radius:100px; padding:13px 20px; cursor:pointer; transition:.18s}
+  .copybtn:active{transform:scale(.96)}
+  .saved{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--tinta3)}
+
+  .fecho{margin:44px 0 0; text-align:center}
+  .fecho .om{font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--ac); margin:0 0 14px}
+  .fecho p{font-family:var(--display); font-style:italic; font-size:21px; line-height:1.5; margin:0 auto; max-width:32ch}
+  .assin{font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--tinta3); text-align:center; margin:40px 0 0}
+  .dot-sep{color:var(--ac); margin:0 6px}
+
+  @media (prefers-reduced-motion: reduce){.beat{opacity:1;transform:none;transition:none}.thread .fill{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Revolução Solar 2026 · Área 2 de 12</p>
+    <h1>Segurança,<br><em>duas raízes</em></h1>
+    <p class="sub">Onde nasce o seu valor, e o que este ano está pedindo dele.</p>
+    <div class="keys"><span>valor</span><span>segurança</span><span>raiz</span></div>
+    <p class="ascline"><span class="glyph">♑</span> Casa 2 natal regida por Vênus, casa 2 do ano regida por Saturno</p>
+
+    <button class="selo-toggle" id="seloBtn" aria-expanded="false">
+      <span class="pl">+</span> ver o mapa por trás
+    </button>
+    <div class="selo" id="selo"><div class="selo-in">
+      <b>Casa 2 natal</b> em Libra, ocupada por Plutão em Escorpião, regida por Vênus em Câncer na casa 10<br>
+      <b>Vênus natal</b> em oposição exata a Saturno e a Urano, os mesmos planetas que moram na sua casa 4<br>
+      <b>Plutão natal</b> em quadratura fechada com a Lua<br>
+      <b>A casa 2 da revolução</b> cai em Capricórnio, o mesmo signo do seu estelário de família, regida por Saturno<br>
+      <b>Essa cúspide do ano</b> toca em conjunção exata o seu Netuno natal, e cai dentro da sua casa 4 natal, a da família
+    </div></div>
+  </header>
+
+  <section class="roteiro" id="roteiro">
+    <div class="thread"><div class="fill" id="fill"></div></div>
+
+    <article class="beat">
+      <span class="lead">quem você é com dinheiro, na prática</span>
+      <p>No dia a dia isso aparece assim: você lida com dinheiro de um jeito sério, controlado, quase privado, prefere resolver por dentro a expor uma fragilidade financeira pra alguém. É a mesma intensidade de Escorpião que mora nessa área do seu mapa, ela não brinca com o que é seu.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">por que essa área já nasce em tensão</span>
+      <p>Isso não é acaso. O que você valoriza e sente que merece, a sua Vênus, faz oposição exata com dois planetas que moram na sua casa de família e raízes. Ou seja, o seu jeito de amar e de sentir que merece coisas boas nasceu puxado por algo antigo de casa, uma trava, e ao mesmo tempo uma vontade de romper com essa trava. Você aprendeu cedo que segurança e liberdade pareciam duas coisas que não cabiam juntas.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">o padrão que se repete</span>
+      <p>Junto disso, o planeta que controla essa área por dentro puxa direto pra sua emoção. Quando o dinheiro aperta, ou quando você sente que está perdendo o controle sobre ele, é a sua emoção inteira que balança junto, não fica só no bolso.</p>
+    </article>
+
+    <article class="beat mark">
+      <span class="lead">o que o céu ativa este ano</span>
+      <p>Este ano, a área do seu valor muda de comando: quem assume ali agora é o planeta da disciplina, do tempo, da construção devagar. E não é um comando qualquer, é o mesmo que já mora na sua casa de família. O ano pede que você construa segurança financeira tijolo por tijolo, sem atalho, mas pedindo isso puxando exatamente o mesmo ponto de sempre.</p>
+    </article>
+
+    <article class="beat mark">
+      <span class="lead">a coincidência que vale guardar</span>
+      <p>Tem um encontro exato no seu mapa: a entrada dessa área do ano cai bem em cima de um ponto natal seu ligado à fé e à idealização, e literalmente dentro da sua casa de família. Isso quer dizer que o que envolve dinheiro e segurança este ano não é só questão prática, tem um fio ligado à sua história de casa, e talvez a algo que você ainda não está enxergando direito.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">o apoio que já é seu</span>
+      <p>Existe também um apoio real: esse mesmo ponto do ano conversa fácil com o planeta que já mora nessa área desde que você nasceu. Ou seja, a sua própria capacidade de transformar e de virar o jogo, que já é natural em você, este ano tem uma ponte fácil pra ser usada a seu favor, não só pra guardar.</p>
+    </article>
+
+    <div class="mirror">
+      <span class="ml">o teu espelho</span>
+      <p>Se eu não continuar produzindo, vou perder o chão que já é tão instável</p>
+    </div>
+  </section>
+
+  <section class="camadas">
+    <p class="camadas-lead">abre cada camada</p>
+    <p class="camadas-sub">Toque pra abrir. O que pode acontecer, o que cuidar, e as perguntas pra levar com você.</p>
+
+    <div class="fold pos">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">✦</span>
+        <span class="fold-t"><span class="nm">As possibilidades</span><span class="tz">Cenários que este ano pode abrir</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>Construir segurança financeira de um jeito mais devagar e consciente, sem precisar da pressa ou do medo pra agir.</li>
+        <li>Perceber que parte do medo de faltar não nasceu com você, veio de casa, e por isso pode ser questionado.</li>
+        <li>Usar sua capacidade natural de transformar e virar situações difíceis a favor da sua estabilidade este ano.</li>
+      </ul></div></div>
+    </div>
+
+    <div class="fold des">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">□</span>
+        <span class="fold-t"><span class="nm">Os desafios a cuidar</span><span class="tz">Onde essa energia pode te enrolar</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>Confundir controle com segurança, e acabar segurando tudo sozinha por medo de perder o comando.</li>
+        <li>Deixar um medo antigo de família decidir por você antes mesmo de olhar pra situação real de hoje.</li>
+        <li>Medir o seu valor como pessoa pelo quanto você produz ou ganha.</li>
+      </ul></div></div>
+    </div>
+
+    <div class="fold perg">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">☾</span>
+        <span class="fold-t"><span class="nm">As perguntas pra se fazer</span><span class="tz">Pra levar com você</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>De onde vem, de verdade, esse medo de não ter o suficiente?</li>
+        <li>O que eu sustento sozinha hoje que já poderia ser dividido?</li>
+        <li>Se dinheiro não fosse prova de mérito, o que mudaria em mim?</li>
+      </ul></div></div>
+    </div>
+
+    <div class="fold dev">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">✎</span>
+        <span class="fold-t"><span class="nm">Um movimento pra este ano</span><span class="tz">Pra colocar em prática</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>Escreva uma vez o que você lembra de como dinheiro era tratado na sua casa quando criança, só observando o padrão, sem julgar.</li>
+        <li>Escolha uma meta financeira pequena e realista pra este ano, e comemore o progresso, não só o resultado final.</li>
+      </ul></div></div>
+    </div>
+  </section>
+
+  <section class="camadas segunda">
+    <p class="camadas-lead">quem manda aqui este ano</p>
+    <p class="camadas-sub">Toque pra abrir.</p>
+
+    <div class="fold planeta">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">♄</span>
+        <span class="fold-t"><span class="nm">Saturno, o novo comando desta área</span><span class="tz">Não mora aqui este ano, mas é quem decide</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in">
+        <div class="psel">Saturno da revolução em Áries, casa 5; Saturno natal em Capricórnio, casa 4, em oposição a Vênus</div>
+        <div class="pread">
+          <p>Ele não vive dentro dessa área este ano, mas é quem toma as decisões nela, o regente. E não chega como estranho, é o mesmo Saturno que já sustenta o seu medo mais antigo, o de família. Este ano ele pede paciência e construção real, mas também cobra a maturidade de separar o medo antigo da necessidade de hoje.</p>
+        </div>
+        <div class="pperg"><span class="pperg-l">a pergunta que ele faz</span>O que eu decidiria diferente sobre dinheiro se confiasse que já tenho idade e experiência pra lidar com isso?</div>
+      </div></div>
+    </div>
+  </section>
+
+
+  <section class="grupo">
+    <p class="grupo-lbl">leve pro grupo</p>
+    <h2 class="grupo-h">A dinâmica da semana</h2>
+    <p class="grupo-sub">Escreve aqui embaixo e toque em copiar, pra colar na nossa conversa.</p>
+
+    <div class="gcard"><p class="gq">1. Qual frase desta página mais bateu em você?</p><textarea data-k="q1" placeholder="a frase entre aspas, ou outra que ficou na sua cabeça"></textarea></div>
+    <div class="gcard"><p class="gq">2. Onde você vê essa energia na sua vida hoje, e há quanto tempo ela se repete assim?</p><textarea data-k="q2" placeholder="uma situação real, recente, e desde quando você percebe esse mesmo padrão"></textarea></div>
+    <div class="gcard"><p class="gq">3. Esta semana, anote um gasto ou uma decisão financeira sem culpa, só observando o que sentiu na hora. O que foi?</p><textarea data-k="q3" placeholder="o que foi, e o que você sentiu"></textarea></div>
+
+    <div class="copybar">
+      <button class="copybtn" id="copy">copiar pra enviar</button>
+      <span class="saved" id="saved"></span>
+    </div>
+  </section>
+
+  <div class="fecho">
+    <p class="om">pra levar com você</p>
+    <p>Da próxima vez que o medo de faltar aparecer, pergunte: isso é sobre hoje, ou é uma história antiga da sua casa tentando se repetir em mim?</p>
+  </div>
+
+  <p class="assin">Cristiane <span class="dot-sep">·</span> Revolução Solar 2026 <span class="dot-sep">·</span> Casa 2</p>
+
+</div>
+
+<script>
+  (function(){
+    var b=document.getElementById('seloBtn'),s=document.getElementById('selo');
+    b.addEventListener('click',function(){
+      var o=b.classList.toggle('open');
+      b.setAttribute('aria-expanded',o);
+      s.style.maxHeight=o?s.scrollHeight+'px':'0px';
+    });
+  })();
+  (function(){
+    document.querySelectorAll('.fold').forEach(function(f){
+      var h=f.querySelector('.fold-head'),bd=f.querySelector('.fold-body');
+      h.addEventListener('click',function(){
+        var o=f.classList.toggle('open');
+        h.setAttribute('aria-expanded',o);
+        bd.style.maxHeight=o?bd.scrollHeight+'px':'0px';
+      });
+    });
+  })();
+  (function(){
+    var bs=document.querySelectorAll('.beat');
+    function rev(el){el.classList.add('in');}
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){rev(e.target);io.unobserve(e.target);}});},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+      bs.forEach(function(b){io.observe(b);});
+    } else { bs.forEach(rev); }
+    function seen(){var vh=window.innerHeight||document.documentElement.clientHeight;bs.forEach(function(b){if(b.getBoundingClientRect().top<vh*0.98)rev(b);});}
+    window.addEventListener('load',function(){setTimeout(seen,150);});
+    setTimeout(seen,700);
+
+    var sec=document.getElementById('roteiro'),fill=document.getElementById('fill'),t=false;
+    function u(){
+      var r=sec.getBoundingClientRect(),vh=window.innerHeight||document.documentElement.clientHeight,tot=r.height,p=Math.min(Math.max(vh*0.62-r.top,0),tot);
+      fill.style.height=(tot>0?p/tot*100:0).toFixed(1)+'%';
+      t=false;
+    }
+    function o(){if(!t){requestAnimationFrame(u);t=true;}}
+    window.addEventListener('scroll',o,{passive:true});
+    window.addEventListener('resize',o,{passive:true});
+    u();
+  })();
+  (function(){
+    var sv=document.getElementById('saved');
+    document.getElementById('copy').addEventListener('click',function(){
+      var out=['Casa 2, segurança e valor:',''];
+      document.querySelectorAll('.grupo .gcard').forEach(function(c){
+        var q=c.querySelector('.gq').textContent,a=c.querySelector('textarea').value.trim();
+        out.push(q);
+        out.push(a?a:'(não escrevi nada aqui)');
+        out.push('');
+      });
+      var txt=out.join('\n');
+      function done(){sv.textContent='copiado';setTimeout(function(){sv.textContent='';},1800);}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,done);}
+      else{var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(t);done();}
+    });
+  })();
+</script>
+</body>
+</html>
