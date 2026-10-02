@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.className+=' js';</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F5EEDE">
+<title>Casa 3, a mente que fecha um ciclo · Cristiane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light only;
+    --papel:#F5EEDE; --papel2:#EFE5D0; --papel3:#EADFC6;
+    --tinta:#2C2114; --tinta2:#5E4E3A; --tinta3:#8A785F;
+    --ac:#2C6E72; --ac-soft:#2C6E722E;
+    --linha:#2C6E724D;
+    --rosa:#9C5257;
+    --display:'Fraunces',Georgia,serif; --corpo:'Newsreader',Georgia,serif; --mono:'Spline Sans Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--papel); color:var(--tinta); font-family:var(--corpo); font-size:18px; line-height:1.72; overflow-x:hidden;
+    background-image:radial-gradient(1100px 460px at 80% -8%, var(--ac-soft), transparent 62%),
+      radial-gradient(820px 400px at 6% 106%, rgba(94,78,58,.08), transparent 60%);
+  }
+  .wrap{max-width:640px; margin:0 auto; padding:0 22px 90px}
+
+  .hero{padding:60px 0 28px}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--ac); margin-bottom:20px}
+  .hero h1{font-family:var(--display); font-weight:500; font-size:clamp(40px,12vw,58px); line-height:1.03; letter-spacing:-.015em}
+  .hero h1 em{font-style:italic; color:var(--ac)}
+  .hero .sub{font-size:19px; color:var(--tinta2); margin:16px 0 0; max-width:36ch}
+  .keys{display:flex; gap:8px; flex-wrap:wrap; margin:22px 0 0}
+  .keys span{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--tinta2); border:1px solid var(--linha); border-radius:100px; padding:7px 13px; background:rgba(255,255,255,.35)}
+  .ascline{font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--ac); margin:24px 0 0; display:flex; align-items:center; gap:9px}
+  .ascline .glyph{font-size:18px}
+
+  .selo-toggle{margin:24px 0 0; font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--tinta3); background:none; border:1px dashed var(--linha); border-radius:100px; padding:9px 15px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:.2s}
+  .selo-toggle:hover{color:var(--ac)}
+  .selo-toggle .pl{transition:transform .3s}
+  .selo-toggle.open .pl{transform:rotate(45deg)}
+  .selo{max-height:none; overflow:visible}
+  html.js .selo{max-height:0; overflow:hidden; transition:max-height .45s ease}
+  html:not(.js) .selo-toggle{display:none}
+  .selo-in{margin:14px 0 0; padding:16px 18px; background:var(--papel3); border-radius:14px; border:1px solid var(--linha); font-family:var(--mono); font-size:12.5px; line-height:1.9; color:var(--tinta2)}
+  .selo-in b{color:var(--ac); font-weight:500}
+
+  .roteiro{position:relative; margin:44px 0 0; padding-left:30px}
+  .thread{position:absolute; left:6px; top:6px; bottom:0; width:2px; background:var(--linha); border-radius:2px}
+  .thread .fill{position:absolute; left:0; top:0; width:100%; height:0; background:var(--ac); border-radius:2px; transition:height .12s linear}
+  .beat{position:relative; margin:0 0 34px; opacity:1; transform:none}
+  .beat.in{opacity:1; transform:none}
+  .beat::before{content:""; position:absolute; left:-30px; top:12px; width:11px; height:11px; background:var(--papel); border:2px solid var(--ac); border-radius:50%; box-shadow:0 0 0 4px var(--papel)}
+  .beat.mark::before{background:var(--ac)}
+  .beat .lead{font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ac); display:block; margin:0 0 7px}
+  .beat p{font-size:18px; line-height:1.74}
+
+  .mirror{margin:8px 0 0; padding:20px 22px; border-radius:16px; background:linear-gradient(180deg, rgba(156,82,87,.09), rgba(156,82,87,.04)); border:1px solid rgba(156,82,87,.24)}
+  .mirror .ml{font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--rosa); display:block; margin:0 0 8px}
+  .mirror p{margin:0; font-family:var(--display); font-style:italic; font-weight:400; font-size:20px; line-height:1.4}
+  .mirror p::before{content:"\201C"}
+  .mirror p::after{content:"\201D"}
+
+  .camadas{margin:40px 0 0}
+  .camadas-lead{font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--ac); margin:0 0 4px}
+  .camadas-sub{font-size:16px; color:var(--tinta2); margin:0 0 18px}
+  .fold{border:1px solid var(--linha); border-radius:16px; background:var(--papel2); margin:0 0 12px; overflow:hidden}
+  .fold-head{width:100%; text-align:left; background:none; border:0; cursor:pointer; display:flex; align-items:center; gap:14px; padding:18px; font-family:inherit}
+  .fold-glyph{flex:0 0 auto; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font-size:16px; color:var(--ac); background:var(--ac-soft); border:1px solid var(--linha)}
+  .fold-t{flex:1; min-width:0}
+  .fold-t .nm{font-family:var(--display); font-weight:500; font-size:19px; line-height:1.2}
+  .fold-t .tz{font-size:14.5px; color:var(--tinta2); margin-top:2px}
+  .chev{flex:0 0 auto; color:var(--ac); font-size:20px; transition:transform .3s}
+  .fold.open .chev{transform:rotate(90deg)}
+  .fold-body{max-height:none; overflow:visible}
+  html.js .fold-body{max-height:0; overflow:hidden; transition:max-height .5s ease}
+  .fold-in{padding:2px 20px 20px}
+  .rows{list-style:none; margin:6px 0 0; padding:0}
+  .rows li{position:relative; padding:11px 0 11px 24px; border-top:1px solid var(--linha); font-size:16.5px; line-height:1.55}
+  .rows li:first-child{border-top:0}
+  .rows li::before{content:""; position:absolute; left:2px; top:19px; width:7px; height:7px; border-radius:50%; background:var(--ac)}
+  .fold.perg .rows li{font-family:var(--display); font-style:italic; font-size:17.5px}
+
+  .pread p{margin:0 0 10px; font-size:16px}
+  .pread p:last-child{margin-bottom:0}
+  .psel{font-family:var(--mono); font-size:12px; color:var(--tinta3); background:var(--papel3); border-radius:10px; padding:10px 12px; margin:0 0 12px; line-height:1.7}
+  .pperg{margin-top:12px; font-family:var(--display); font-style:italic; font-size:16.5px; color:var(--tinta)}
+  .pperg-l{display:block; font-family:var(--mono); font-style:normal; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ac); margin-bottom:4px}
+
+  .grupo{margin:48px 0 0; background:var(--papel2); border:1px solid var(--linha); border-radius:20px; padding:22px 18px 20px}
+  .grupo-lbl{font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--ac); margin-bottom:4px}
+  .grupo-h{font-family:var(--display); font-weight:500; font-size:26px; letter-spacing:-.01em}
+  .grupo-sub{font-size:15.5px; color:var(--tinta2); margin:8px 0 18px}
+  .gcard{background:var(--papel); border:1px solid var(--linha); border-radius:14px; padding:15px 15px; margin-bottom:11px}
+  .gq{font-family:var(--display); font-size:17.5px; margin-bottom:4px}
+  .gcard textarea{width:100%; font-family:var(--corpo); font-size:16px; color:var(--tinta); background:var(--papel3); border:1px solid var(--linha); border-radius:11px; padding:11px 12px; resize:vertical; min-height:60px; line-height:1.5; margin-top:6px}
+  .gcard textarea:focus{outline:none; border-color:var(--ac)}
+  .copybar{display:flex; align-items:center; gap:12px; margin-top:6px}
+  .copybtn{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--ac); border:0; border-radius:100px; padding:13px 20px; cursor:pointer; transition:.18s}
+  .copybtn:active{transform:scale(.96)}
+  .saved{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--tinta3)}
+
+  .fecho{margin:44px 0 0; text-align:center}
+  .fecho .om{font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--ac); margin:0 0 14px}
+  .fecho p{font-family:var(--display); font-style:italic; font-size:21px; line-height:1.5; margin:0 auto; max-width:32ch}
+  .assin{font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--tinta3); text-align:center; margin:40px 0 0}
+  .dot-sep{color:var(--ac); margin:0 6px}
+
+  @media (prefers-reduced-motion: reduce){.beat{opacity:1;transform:none;transition:none}.thread .fill{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Revolução Solar 2026 · Área 3 de 12</p>
+    <h1>A mente que<br><em>fecha um ciclo</em></h1>
+    <p class="sub">Como você pensa, como você fala, e a transformação que este ano pede da sua cabeça.</p>
+    <div class="keys"><span>mente</span><span>palavra</span><span>vínculos</span></div>
+    <p class="ascline"><span class="glyph">♏</span> Casa 3 no grau final de Escorpião, revolução do ano em Aquário</p>
+
+    <button class="selo-toggle" id="seloBtn" aria-expanded="false">
+      <span class="pl">+</span> ver o mapa por trás
+    </button>
+    <div class="selo" id="selo"><div class="selo-in">
+      <b>Casa 3 natal</b> começa em 29° de Escorpião mas é quase toda Sagitário, vazia de planetas, cúspide em quadratura fechada com Marte, oposição ao Sol e quadratura com Lilith<br>
+      <b>Regência</b> Plutão abre a casa (Escorpião) e passa o bastão a Júpiter, casa 8 (Sagitário); Mercúrio, regente natural da casa 3, em Gêmeos na casa 9<br>
+      <b>Parte da Fortuna</b> em 29° de Escorpião, no grau de virada da casa 3<br>
+      <b>A casa 3 da revolução</b> cai em Aquário e alcança a casa 6 natal<br>
+      <b>Plutão retrógrado</b> na casa 3 do ano, em oposição à Lua da revolução na casa 9<br>
+      <b>Juno</b> também na casa 3 do ano; os dois caem na casa 5 natal<br>
+      <b>É a casa do ano</b> pela profecção, e onde caem o Ascendente e a Lilith da revolução
+    </div></div>
+  </header>
+
+  <section class="roteiro" id="roteiro">
+    <div class="thread"><div class="fill" id="fill"></div></div>
+
+    <article class="beat">
+      <span class="lead">como a sua mente funciona</span>
+      <p>A casa 3 é o seu jeito de pensar, de falar, de conversar com quem está perto. E a sua é, na maior parte, uma mente ampla e curiosa: você gosta de entender o porquê das coisas, de aprender, de buscar um sentido maior, e pensa melhor quando tem liberdade e ar, não quando está presa numa regra. Essa é a sua natureza de fundo, puxada por Sagitário e reforçada por um pensamento rápido e comunicativo que já nasce voltado pra expansão.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">o portão que você atravessa primeiro</span>
+      <p>Só que pra chegar nessa amplitude, você passa por um portão. A casa começa no último grau de Escorpião, e isso é como uma câmara que você cruza antes de entrar na parte larga e livre da sua mente. Nessa entrada mora o que ficou de um jeito mais fechado de pensar: a desconfiança, o controle por dentro, o hábito de imaginar o pior pra se preparar. Não é quem você é, é o que você precisa finalizar. No mapa, quem abre essa porta é a força da profundidade, e ela passa o bastão pra força da expansão. Terminar o que é denso libera o que é leve. A sua mente quer voar, só precisa fechar a câmara da entrada.</p>
+    </article>
+
+    <article class="beat mark">
+      <span class="lead">onde mora a sua sorte</span>
+      <p>Agora olha que presente: a sua Parte da Fortuna, que é o ponto onde a vida flui com mais facilidade quando você se alinha, está exatamente nesse mesmo grau, dentro da casa da mente. Isso quase nunca cai assim. É um recado direto do seu mapa: a sua sorte mora na sua forma de pensar e de se comunicar. A mesma mente que hoje fabrica medo é a que guarda o seu ouro. Quando você transforma o pensar de pesado pra confiante, não é só alívio, é onde a sua vida se abre.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">a origem do medo que você perguntou</span>
+      <p>Você me perguntou de onde vêm os seus medos e como mudar. A resposta está nesse portão de entrada. O medo, em você, não nasce lá fora, nasce nessa câmara mais fechada da mente, a que antecipa o pior pra se sentir preparada. Ele mora no pensamento, não no fato. E é por isso que a cura também está aqui dentro, em finalizar essa parte, não no mundo tentando ficar perfeito pra você parar de temer. Quando a câmara se fecha, o que se abre é a sua mente ampla, que é a maior parte de você.</p>
+    </article>
+
+    <article class="beat mark">
+      <span class="lead">o que o céu ativa este ano</span>
+      <p>Em 2026 essa área vira o centro do seu ano, e o que entra aqui é transformação profunda, só que andando pra trás. Na prática: você já começou a mexer nesses pensamentos antes, talvez tenha parado no meio, e o ano traz de volta pra você terminar. É um ano de revisitar um medo antigo da cabeça e dessa vez transformar de verdade, não só administrar. E o clima disso é aquariano: liberdade de pensamento, abrir a mente pra ideias novas, sair do pensamento fechado e circular, conversar, conhecer outras formas de ver a vida. O convite é trocar a mente que remói sozinha pela mente que se areja no contato.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">a tensão que puxa pra cima</span>
+      <p>Essa transformação da mente não acontece no vácuo, ela está em diálogo direto com a sua necessidade de sentido maior, de fé, de acreditar em algo que te sustente. Uma parte sua quer continuar no controle concreto, pensando e remoendo, e outra parte pede pra confiar no que não dá pra controlar. É esse puxão que o ano quer resolver, não te deixando nem na razão travada nem na fé ingênua, mas no meio, onde pensar e confiar andam juntos.</p>
+    </article>
+
+    <article class="beat mark">
+      <span class="lead">os vínculos próximos, e o que é seu pra transformar</span>
+      <p>Essa é também a casa das pessoas do seu dia a dia: os irmãos, mas também os amigos de perto, os vizinhos, quem você encontra no convívio comum. Ela sendo a mais acesa do ano é o mapa dizendo que as suas trocas próximas estão no coração de 2026. E o que o ano pede não é esperar que os outros mudem, é que você transforme a forma como se comunica dentro desses vínculos: como você se aproxima, o que você cala, e como às vezes você se protege por medo de atrapalhar em vez de chegar perto. A sua irmã é um desses laços, talvez o mais sensível agora, mas não o único. Todos esses sentimentos que travam a sua expressão com quem está perto, o ano está pedindo pra você olhar e transformar. É esse o seu movimento, e ele é inteiro seu.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">pra onde isso desemboca</span>
+      <p>E tem um presente do outro lado. Essa transformação da mente este ano cai, no seu mapa, bem na área da criação e do prazer. Quer dizer que quando você solta o pensamento pesado, o que destrava não é só paz, é vontade de criar, de se expressar, de sentir gosto pelas coisas de novo. Mexer na cabeça, em você, libera a alegria.</p>
+    </article>
+
+    <div class="mirror">
+      <span class="ml">o teu espelho</span>
+      <p>Minha cabeça já viveu o pior cem vezes antes de ele sequer chegar, e quase nunca chegou</p>
+    </div>
+  </section>
+
+  <section class="camadas">
+    <p class="camadas-lead">abre cada camada</p>
+    <p class="camadas-sub">Toque pra abrir. O que pode acontecer, o que cuidar, e as perguntas pra levar com você.</p>
+
+    <div class="fold pos">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">✦</span>
+        <span class="fold-t"><span class="nm">As possibilidades</span><span class="tz">Cenários que este ano pode abrir</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>Terminar de uma vez um jeito antigo de pensar, aquele que vive no pior cenário, e trocar por uma mente mais leve e confiante.</li>
+        <li>Usar a profundidade da sua mente pra entender e criar, não pra remoer medo. É o mesmo poder, apontado pra outro lugar.</li>
+        <li>Se aproximar das pessoas de perto, a sua irmã entre elas, por um caminho novo de conversa, dizendo o que você costuma engolir por medo de atrapalhar.</li>
+        <li>Abrir a cabeça pra ideias e pessoas diferentes, deixar o contato arejar o pensamento que hoje roda sozinho.</li>
+        <li>Quando a mente aliviar, sentir voltar a vontade de criar e de sentir prazer nas coisas.</li>
+      </ul></div></div>
+    </div>
+
+    <div class="fold des">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">□</span>
+        <span class="fold-t"><span class="nm">Os desafios a cuidar</span><span class="tz">Onde essa energia pode te enrolar</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>Ficar presa no pensamento que gira em círculo, revivendo a mesma conversa ou o mesmo medo sem sair do lugar.</li>
+        <li>Usar a desconfiança como escudo e acabar longe justamente de quem você quer perto.</li>
+        <li>Guardar o que sente com quem é próximo até virar distância, quando dizer cedo abriria caminho.</li>
+        <li>Confundir pensar muito com resolver, quando na verdade o excesso de análise só adia a vida.</li>
+      </ul></div></div>
+    </div>
+
+    <div class="fold perg">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">☾</span>
+        <span class="fold-t"><span class="nm">As perguntas pra se fazer</span><span class="tz">Pra levar com você</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>Qual pensamento eu repito há anos que já não é verdade sobre mim?</li>
+        <li>O que eu deixo de dizer pra alguém próximo com medo de atrapalhar, que talvez essa pessoa precisasse ouvir?</li>
+        <li>Quando o medo aparece na minha cabeça, quantas vezes ele virou realidade de verdade?</li>
+        <li>Se a minha mente fosse um lugar seguro, o que eu me permitiria criar?</li>
+      </ul></div></div>
+    </div>
+
+    <div class="fold dev">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">✎</span>
+        <span class="fold-t"><span class="nm">Um movimento pra este ano</span><span class="tz">Pra colocar em prática</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>Quando pegar a mente rodando no pior cenário, escreve o pensamento numa linha e, embaixo, quantas vezes ele já se realizou de verdade. Deixar no papel tira a força dele.</li>
+        <li>Uma vez por semana, manda pra alguém próximo, a sua irmã ou um amigo de perto, algo pequeno e verdadeiro que você normalmente guardaria, sem esperar o momento perfeito.</li>
+        <li>Leia, ouça ou converse sobre algo totalmente fora do seu mundo uma vez por semana. Arejar a cabeça com o novo é remédio pra mente que gira sozinha.</li>
+      </ul></div></div>
+    </div>
+  </section>
+
+  <section class="camadas segunda">
+    <p class="camadas-lead">quem mora aqui este ano</p>
+    <p class="camadas-sub">Toque pra abrir.</p>
+
+    <div class="fold planeta">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">♇</span>
+        <span class="fold-t"><span class="nm">Plutão, o que transforma a mente</span><span class="tz">Retrógrado na casa 3 do ano</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in">
+        <div class="psel">Plutão retrógrado na casa 3 da revolução, em Aquário, regente da casa 3 natal; cai na casa 5 natal</div>
+        <div class="pread">
+          <p>Aqui tem um detalhe que muda tudo: Plutão não é um visitante na sua mente, ele é o dono da casa. É ele quem rege a entrada da sua casa 3 desde que você nasceu, aquele portão de Escorpião. Então este ano não é uma força estranha chegando, é o próprio senhor da sua mente voltando pra terminar uma reforma que é dele por direito. Por isso vai fundo, ele conhece o terreno.</p>
+          <p>E ele faz isso de um jeito aquariano: não é remoer mais, é romper. Cortar de vez uma crença herdada, pensar o que você nunca se permitiu pensar, se libertar de uma regra mental que nem era sua. É a profundidade de Plutão a serviço da liberdade, não do controle.</p>
+        </div>
+        <div class="pperg"><span class="pperg-l">a pergunta que ele faz</span>Que ideia sobre mim mesma eu aceitei sem nunca ter escolhido, e que eu poderia simplesmente largar?</div>
+      </div></div>
+    </div>
+
+    <div class="fold planeta">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">⚵</span>
+        <span class="fold-t"><span class="nm">Juno, o compromisso com o vínculo</span><span class="tz">Na casa 3 do ano, ao lado de Plutão</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in">
+        <div class="psel">Juno na casa 3 da revolução, em Aquário, direta (não retrógrada), ao lado de Plutão; cai na casa 5 natal</div>
+        <div class="pread">
+          <p>Enquanto Plutão anda pra trás revisando o que já foi, Juno anda pra frente. Ela é a parte que firma aliança, e estar aqui direta significa um compromisso novo a ser feito, não um antigo a revisar. Com um detalhe aquariano importante: é uma aliança que pede liberdade. O compromisso que te serve este ano não é o que aperta, é o que deixa os dois respirarem. Estar perto sem se perder, se dar sem se anular.</p>
+          <p>E ela cai na sua área de prazer e criação, o que diz que esses vínculos não são pra carregar como dever ou peso. São pra te dar alegria. O laço que vale firmar este ano é o que te faz criar, rir, sentir gosto, não o que vira mais uma obrigação na sua lista.</p>
+        </div>
+        <div class="pperg"><span class="pperg-l">a pergunta que ela faz</span>Qual relação próxima me dá leveza e prazer, e merece que eu me aproxime mais de verdade?</div>
+      </div></div>
+    </div>
+  </section>
+
+
+  <section class="grupo">
+    <p class="grupo-lbl">leve pro grupo</p>
+    <h2 class="grupo-h">A dinâmica da semana</h2>
+    <p class="grupo-sub">Escreve aqui embaixo e toque em copiar, pra colar na nossa conversa.</p>
+
+    <div class="gcard"><p class="gq">1. Qual frase desta página mais bateu em você?</p><textarea data-k="q1" placeholder="a frase entre aspas, ou outra que ficou na sua cabeça"></textarea></div>
+    <div class="gcard"><p class="gq">2. Qual pensamento antigo você sente que já está na hora de deixar morrer, e há quanto tempo ele te acompanha?</p><textarea data-k="q2" placeholder="o pensamento, e desde quando ele ronda"></textarea></div>
+    <div class="gcard"><p class="gq">3. Esta semana, diga pra alguém do seu convívio próximo, a sua irmã, um amigo, quem for, uma coisa verdadeira que você costuma guardar. Fique à vontade pra contar como foi.</p><textarea data-k="q3" placeholder="o que você disse, e o que sentiu depois"></textarea></div>
+
+    <div class="copybar">
+      <button class="copybtn" id="copy">copiar pra enviar</button>
+      <span class="saved" id="saved"></span>
+    </div>
+  </section>
+
+  <div class="fecho">
+    <p class="om">pra levar com você</p>
+    <p>Se a sua mente parasse de te preparar pro pior e começasse a te lembrar do que já deu certo, quem você seria este ano?</p>
+  </div>
+
+  <p class="assin">Cristiane <span class="dot-sep">·</span> Revolução Solar 2026 <span class="dot-sep">·</span> Casa 3</p>
+
+</div>
+
+<script>
+  (function(){
+    var b=document.getElementById('seloBtn'),s=document.getElementById('selo');
+    b.addEventListener('click',function(){
+      var o=b.classList.toggle('open');
+      b.setAttribute('aria-expanded',o);
+      s.style.maxHeight=o?s.scrollHeight+'px':'0px';
+    });
+  })();
+  (function(){
+    document.querySelectorAll('.fold').forEach(function(f){
+      var h=f.querySelector('.fold-head'),bd=f.querySelector('.fold-body');
+      h.addEventListener('click',function(){
+        var o=f.classList.toggle('open');
+        h.setAttribute('aria-expanded',o);
+        bd.style.maxHeight=o?bd.scrollHeight+'px':'0px';
+      });
+    });
+  })();
+  (function(){
+    var bs=document.querySelectorAll('.beat');
+    function rev(el){el.classList.add('in');}
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){rev(e.target);io.unobserve(e.target);}});},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+      bs.forEach(function(b){io.observe(b);});
+    } else { bs.forEach(rev); }
+    function seen(){var vh=window.innerHeight||document.documentElement.clientHeight;bs.forEach(function(b){if(b.getBoundingClientRect().top<vh*0.98)rev(b);});}
+    window.addEventListener('load',function(){setTimeout(seen,150);});
+    setTimeout(seen,700);
+
+    var sec=document.getElementById('roteiro'),fill=document.getElementById('fill'),t=false;
+    function u(){
+      var r=sec.getBoundingClientRect(),vh=window.innerHeight||document.documentElement.clientHeight,tot=r.height,p=Math.min(Math.max(vh*0.62-r.top,0),tot);
+      fill.style.height=(tot>0?p/tot*100:0).toFixed(1)+'%';
+      t=false;
+    }
+    function o(){if(!t){requestAnimationFrame(u);t=true;}}
+    window.addEventListener('scroll',o,{passive:true});
+    window.addEventListener('resize',o,{passive:true});
+    u();
+  })();
+  (function(){
+    var sv=document.getElementById('saved');
+    document.getElementById('copy').addEventListener('click',function(){
+      var out=['Casa 3, a mente que fecha um ciclo:',''];
+      document.querySelectorAll('.grupo .gcard').forEach(function(c){
+        var q=c.querySelector('.gq').textContent,a=c.querySelector('textarea').value.trim();
+        out.push(q);
+        out.push(a?a:'(não escrevi nada aqui)');
+        out.push('');
+      });
+      var txt=out.join('\n');
+      function done(){sv.textContent='copiado';setTimeout(function(){sv.textContent='';},1800);}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,done);}
+      else{var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(t);done();}
+    });
+  })();
+</script>
+</body>
+</html>
