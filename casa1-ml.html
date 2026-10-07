@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.className+=' js';</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F5EEDE">
+<title>Casa 1, a porta de entrada · Mariana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light only;
+    --papel:#F5EEDE; --papel2:#EFE5D0; --papel3:#EADFC6;
+    --tinta:#2C2114; --tinta2:#5E4E3A; --tinta3:#8A785F;
+    --ac:#B5673A; --ac-soft:#B5673A2E;
+    --linha:#B5673A4D;
+    --rosa:#9C5257;
+    --display:'Fraunces',Georgia,serif; --corpo:'Newsreader',Georgia,serif; --mono:'Spline Sans Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--papel); color:var(--tinta); font-family:var(--corpo); font-size:18px; line-height:1.72; overflow-x:hidden;
+    background-image:radial-gradient(1100px 460px at 80% -8%, var(--ac-soft), transparent 62%),
+      radial-gradient(820px 400px at 6% 106%, rgba(94,78,58,.08), transparent 60%);
+  }
+  .wrap{max-width:640px; margin:0 auto; padding:0 22px 90px}
+
+  .hero{padding:60px 0 28px}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--ac); margin-bottom:20px}
+  .hero h1{font-family:var(--display); font-weight:500; font-size:clamp(40px,12vw,58px); line-height:1.03; letter-spacing:-.015em}
+  .hero h1 em{font-style:italic; color:var(--ac)}
+  .hero .sub{font-size:19px; color:var(--tinta2); margin:16px 0 0; max-width:36ch}
+  .keys{display:flex; gap:8px; flex-wrap:wrap; margin:22px 0 0}
+  .keys span{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--tinta2); border:1px solid var(--linha); border-radius:100px; padding:7px 13px; background:rgba(255,255,255,.35)}
+  .ascline{font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--ac); margin:24px 0 0; display:flex; align-items:center; gap:9px}
+  .ascline .glyph{font-size:18px}
+
+  .selo-toggle{margin:24px 0 0; font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--tinta3); background:none; border:1px dashed var(--linha); border-radius:100px; padding:9px 15px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:.2s}
+  .selo-toggle:hover{color:var(--ac)}
+  .selo-toggle .pl{transition:transform .3s}
+  .selo-toggle.open .pl{transform:rotate(45deg)}
+  .selo{max-height:none; overflow:visible}
+  html.js .selo{max-height:0; overflow:hidden; transition:max-height .45s ease}
+  html:not(.js) .selo-toggle{display:none}
+  .selo-in{margin:14px 0 0; padding:16px 18px; background:var(--papel3); border-radius:14px; border:1px solid var(--linha); font-family:var(--mono); font-size:12.5px; line-height:1.9; color:var(--tinta2)}
+  .selo-in b{color:var(--ac); font-weight:500}
+
+  .roteiro{position:relative; margin:44px 0 0; padding-left:30px}
+  .thread{position:absolute; left:6px; top:6px; bottom:0; width:2px; background:var(--linha); border-radius:2px}
+  .thread .fill{position:absolute; left:0; top:0; width:100%; height:0; background:var(--ac); border-radius:2px; transition:height .12s linear}
+  .beat{position:relative; margin:0 0 34px; opacity:1; transform:none}
+  html.js .beat{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease}
+  .beat.in, html.js .beat.in{opacity:1; transform:none}
+  .beat::before{content:""; position:absolute; left:-30px; top:12px; width:11px; height:11px; background:var(--papel); border:2px solid var(--ac); border-radius:50%; box-shadow:0 0 0 4px var(--papel)}
+  .beat.mark::before{background:var(--ac)}
+  .beat .lead{font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ac); display:block; margin:0 0 7px}
+  .beat p{font-size:18px; line-height:1.74}
+
+  .mirror{margin:8px 0 0; padding:20px 22px; border-radius:16px; background:linear-gradient(180deg, rgba(156,82,87,.09), rgba(156,82,87,.04)); border:1px solid rgba(156,82,87,.24)}
+  .mirror .ml{font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--rosa); display:block; margin:0 0 8px}
+  .mirror p{margin:0; font-family:var(--display); font-style:italic; font-weight:400; font-size:20px; line-height:1.4}
+  .mirror p::before{content:"\201C"}
+  .mirror p::after{content:"\201D"}
+
+  .camadas{margin:40px 0 0}
+  .camadas-lead{font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--ac); margin:0 0 4px}
+  .camadas-sub{font-size:16px; color:var(--tinta2); margin:0 0 18px}
+  .fold{border:1px solid var(--linha); border-radius:16px; background:var(--papel2); margin:0 0 12px; overflow:hidden}
+  .fold-head{width:100%; text-align:left; background:none; border:0; cursor:pointer; display:flex; align-items:center; gap:14px; padding:18px; font-family:inherit}
+  .fold-glyph{flex:0 0 auto; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font-size:16px; color:var(--ac); background:var(--ac-soft); border:1px solid var(--linha)}
+  .fold-t{flex:1; min-width:0}
+  .fold-t .nm{font-family:var(--display); font-weight:500; font-size:19px; line-height:1.2}
+  .fold-t .tz{font-size:14.5px; color:var(--tinta2); margin-top:2px}
+  .chev{flex:0 0 auto; color:var(--ac); font-size:20px; transition:transform .3s}
+  .fold.open .chev{transform:rotate(90deg)}
+  .fold-body{max-height:none; overflow:visible}
+  html.js .fold-body{max-height:0; overflow:hidden; transition:max-height .5s ease}
+  .fold-in{padding:2px 20px 20px}
+  .rows{list-style:none; margin:6px 0 0; padding:0}
+  .rows li{position:relative; padding:11px 0 11px 24px; border-top:1px solid var(--linha); font-size:16.5px; line-height:1.55}
+  .rows li:first-child{border-top:0}
+  .rows li::before{content:""; position:absolute; left:2px; top:19px; width:7px; height:7px; border-radius:50%; background:var(--ac)}
+  .fold.perg .rows li{font-family:var(--display); font-style:italic; font-size:17.5px}
+
+  .pread p{margin:0 0 10px; font-size:16px}
+  .pread p:last-child{margin-bottom:0}
+  .psel{font-family:var(--mono); font-size:12px; color:var(--tinta3); background:var(--papel3); border-radius:10px; padding:10px 12px; margin:0 0 12px; line-height:1.7}
+  .pperg{margin-top:12px; font-family:var(--display); font-style:italic; font-size:16.5px; color:var(--tinta)}
+  .pperg-l{display:block; font-family:var(--mono); font-style:normal; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ac); margin-bottom:4px}
+
+  .grupo{margin:48px 0 0; background:var(--papel2); border:1px solid var(--linha); border-radius:20px; padding:22px 18px 20px}
+  .grupo-lbl{font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--ac); margin-bottom:4px}
+  .grupo-h{font-family:var(--display); font-weight:500; font-size:26px; letter-spacing:-.01em}
+  .grupo-sub{font-size:15.5px; color:var(--tinta2); margin:8px 0 18px}
+  .gcard{background:var(--papel); border:1px solid var(--linha); border-radius:14px; padding:15px 15px; margin-bottom:11px}
+  .gq{font-family:var(--display); font-size:17.5px; margin-bottom:4px}
+  .gcard textarea{width:100%; font-family:var(--corpo); font-size:16px; color:var(--tinta); background:var(--papel3); border:1px solid var(--linha); border-radius:11px; padding:11px 12px; resize:vertical; min-height:60px; line-height:1.5; margin-top:6px}
+  .gcard textarea:focus{outline:none; border-color:var(--ac)}
+  .copybar{display:flex; align-items:center; gap:12px; margin-top:6px}
+  .copybtn{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--ac); border:0; border-radius:100px; padding:13px 20px; cursor:pointer; transition:.18s}
+  .copybtn:active{transform:scale(.96)}
+  .saved{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--tinta3)}
+
+  .fecho{margin:44px 0 0; text-align:center}
+  .fecho .om{font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--ac); margin:0 0 14px}
+  .fecho p{font-family:var(--display); font-style:italic; font-size:21px; line-height:1.5; margin:0 auto; max-width:32ch}
+  .assin{font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--tinta3); text-align:center; margin:40px 0 0}
+  .dot-sep{color:var(--ac); margin:0 6px}
+
+  @media (prefers-reduced-motion: reduce){.beat{opacity:1;transform:none;transition:none}.thread .fill{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Revolução Solar 2026 · Área 1 de 12</p>
+    <h1>A porta que você<br><em>pesa antes de abrir</em></h1>
+    <p class="sub">O jeito que nasceu com você, e o jeito que este ano está pedindo.</p>
+    <div class="keys"><span>identidade</span><span>ousadia</span><span>autoconfiança</span></div>
+    <p class="ascline"><span class="glyph">♏</span> Ascendente natal em Leão, revolução do ano em Escorpião</p>
+
+    <button class="selo-toggle" id="seloBtn" aria-expanded="false">
+      <span class="pl">+</span> ver o mapa por trás
+    </button>
+    <div class="selo" id="selo"><div class="selo-in">
+      <b>Ascendente natal</b> Leão 12°11', com Saturno em oposição exata (orbe 0,4°), Mercúrio em quadratura (3,6°) e a Lua em quadratura (5,2°)<br>
+      <b>Regente do Ascendente</b> o Sol, em Libra, casa 2, em sextil com Quíron<br>
+      <b>Quíron natal</b> mora na casa 1, em Leão, em quadratura com Vênus (1,0°) e com Plutão (0,5°)<br>
+      <b>Mercúrio natal</b> em Escorpião, em oposição à Lua (1,6°), e é o Senhor do Ano na profecção<br>
+      <b>Revolução 2026</b> (São Paulo, Placidus) Ascendente em 27°29' Escorpião, casa 1 sem planetas, Lua colada na porta, ainda na casa 12 (4,8°)<br>
+      <b>Aspectos ao Ascendente do ano</b> Nodo Norte em quadratura quase exata (1,0°), Júpiter em quadratura (5,8°), Netuno em trígono (5,0°), Plutão em sextil (5,6°)<br>
+      <b>Meio-Céu do ano</b> 13°49' Leão, a 1°38' do Ascendente natal, em oposição ao Saturno natal (2,0°)<br>
+      <b>Júpiter do ano</b> em 21°42' Leão, sobre o Quíron natal (0,6°)<br>
+      <b>Saturno do ano</b> em trígono com o Ascendente natal (1,6°)<br>
+      <b>O Ascendente do ano</b> cai na casa 4 natal<br>
+      <b>Profecção</b> ano na casa 11; a casa 1 acende no mês de 13/12 a 11/01
+    </div></div>
+  </header>
+
+  <section class="roteiro" id="roteiro">
+    <div class="thread"><div class="fill" id="fill"></div></div>
+
+    <article class="beat">
+      <span class="lead">quem você é, na prática</span>
+      <p>Por fora, você tem presença. Quando entra num lugar, algo em você pede para ser notada, e você sabe disso. Por dentro, antes do primeiro passo, uma balança liga: o que vão achar, se é a hora certa, se você está à altura, se dava para fazer melhor. Você pesa tanto que, quando finalmente decide, já gastou boa parte da energia que ia usar para fazer. Daí a sensação de ser indecisa, de saber o que quer e mesmo assim ficar esperando um sinal de que pode.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">de onde vem esse freio</span>
+      <p>Isso não é falta de capacidade. Dentro de você duas partes discordam: a cabeça desconfia e enxerga tudo o que pode dar errado, o corpo quer segurança e não aceita salto no escuro. Você decide com uma e a outra vota contra, e fica o impasse. Por cima, há uma voz avaliadora, quase sempre aprendida cedo, com alguém cuja aprovação parecia precisar ser conquistada. Quem convive com ela passa a medir o próprio valor pelo olhar de fora, e é daí que a autoestima fica sem chão.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">a ferida que mora na porta</span>
+      <p>Na entrada do seu mapa mora uma ferida específica: a de ser vista só por uma parte, e não por inteiro. Quem carrega isso aprende a aceitar a atenção que vem, mesmo quando ela chega pela metade, porque pelo menos é atenção. Esse fio mexe no jeito como você se vê e no jeito como escolhe quem entra na sua vida, e vamos puxar ele com calma na casa dos relacionamentos. Aqui eu só nomeio, para você reconhecer.</p>
+    </article>
+
+    <article class="beat">
+      <span class="lead">o respiro que já existe</span>
+      <p>Nem tudo aqui pesa. Quem já foi vista pela metade aprende a enxergar o outro inteiro, e isso é raro em quem lidera e em quem cuida. E o seu crescimento não pede certeza, pede movimento: ele acontece quando você entra antes de estar segura, mesmo que só um pouco.</p>
+    </article>
+
+    <article class="beat mark">
+      <span class="lead">o que o céu ativa este ano</span>
+      <p>O ano entra por uma porta mais funda e mais seletiva. Boa parte do que você vai viver nele não aparece de imediato: é preparação silenciosa, nos bastidores, antes de você se mostrar. Daí a sensação de estar enrolada, com tudo acontecendo por dentro e pouca clareza por fora. O ano também coloca você de frente com o seu próprio jeito de pensar e decidir, o mesmo que hoje te trava. Os quatro personagens lá embaixo mostram como isso chega.</p>
+    </article>
+
+    <article class="beat mark">
+      <span class="lead">onde isso pede movimento de fato</span>
+      <p>O mapa amarra o ano em dois pontos. Primeiro: a pergunta sobre o seu trabalho e a pergunta sobre quem você é viram a mesma pergunta, então o que você decidir sobre carreira será também uma decisão sobre identidade. Segundo: a chance de crescer chega junto com a dúvida de merecer. Não é teste, é que o crescimento acontece justamente onde dói. O mapa não decide por você se um lugar de comando é o lugar certo. Ele mostra com que dúvida você chega nele, e que essa dúvida tem nome e endereço. O chão existe: a maturidade do ano está do seu lado, e o trabalho de se posicionar começa nas bases, com as pessoas de casa, antes de ir para fora.</p>
+    </article>
+
+    <article class="beat mark">
+      <span class="lead">quando a porta pesa e quando ela cede</span>
+      <p>Três janelas para marcar. De 13/12 a 11/01, a sua identidade fica em primeiro plano: é o mês para testar uma versão mais firme de você. Em fevereiro de 2027 tudo se concentra: entre 18 e 25/02 chegam, quase juntos, a oportunidade grande, um fechamento de ciclo na sua imagem e um apoio de maturidade. É onde a decisão pede corpo. Entre junho e agosto de 2027 o tema volta (05/06, 19/06 e 02/08), e dessa vez ele testa o que você decidiu em fevereiro.</p>
+    </article>
+
+    <div class="mirror">
+      <span class="ml">o teu espelho</span>
+      <p>E se eu aceitar, e todo mundo descobrir que eu não era tudo isso?</p>
+    </div>
+  </section>
+
+  <section class="camadas">
+    <p class="camadas-lead">abre cada camada</p>
+    <p class="camadas-sub">Toque pra abrir. O que pode acontecer, o que cuidar, e as perguntas pra levar com você.</p>
+
+    <div class="fold pos">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">✦</span>
+        <span class="fold-t"><span class="nm">As possibilidades</span><span class="tz">Cenários que este ano pode abrir</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>Descobrir que ousadia, para você, tem menos barulho e mais sustentação: decidir e ficar com a decisão.</li>
+        <li>Assumir um lugar de comando do seu jeito, com a presença que já é sua, em vez de copiar o estilo de quem esteve ali antes.</li>
+        <li>Transformar a sensibilidade de já ter sido vista pela metade em um olhar raro para quem chega inseguro com o próprio corpo e a própria imagem.</li>
+      </ul></div></div>
+    </div>
+
+    <div class="fold des">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">□</span>
+        <span class="fold-t"><span class="nm">Os desafios a cuidar</span><span class="tz">Onde essa energia pode te enrolar</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>Pesar tanto que a oportunidade passa, ou que ela vira obrigação por cansaço.</li>
+        <li>Dizer sim por emoção, num dia sensível, e carregar o peso depois.</li>
+        <li>Querer parecer segura, em vez de se permitir ser uma líder em construção.</li>
+        <li>Usar a preparação silenciosa do ano como desculpa para adiar: bastidor é etapa, não destino.</li>
+      </ul></div></div>
+    </div>
+
+    <div class="fold perg">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">☾</span>
+        <span class="fold-t"><span class="nm">As perguntas pra se fazer</span><span class="tz">Pra levar com você</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>O que eu já decidi por dentro e ainda estou pesando só para adiar o risco de dizer em voz alta?</li>
+        <li>De quem eu aceito atenção sem ser vista por inteiro, e o que isso me custa?</li>
+        <li>Se ninguém fosse me avaliar, que versão de mim entraria por essa porta?</li>
+      </ul></div></div>
+    </div>
+
+    <div class="fold dev">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">✎</span>
+        <span class="fold-t"><span class="nm">Um movimento pra este ano</span><span class="tz">Pra colocar em prática</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in"><ul class="rows">
+        <li>Esta semana, escolha uma decisão pequena que você vem pesando e decida em até 24 horas, sem consultar ninguém. Repare no que o corpo faz antes e depois.</li>
+        <li>Antes de uma decisão maior, escreva duas colunas curtas: o que a cabeça diz e o que o corpo diz. Só então escolha, sabendo qual das duas está votando contra.</li>
+        <li>Escreva três frases começando com “Eu seria uma boa líder porque”, usando só fatos que você já fez, e não elogios que ouviu. Releia nas semanas em que a dúvida apertar.</li>
+      </ul></div></div>
+    </div>
+  </section>
+
+  <section class="camadas segunda">
+    <p class="camadas-lead">quem mora aqui e quem bate na porta</p>
+    <p class="camadas-sub">Esta porta não tem moradores no ano. Tem o morador de nascença e três presenças que batem nela. Toque pra abrir.</p>
+
+    <div class="fold planeta">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">⚷</span>
+        <span class="fold-t"><span class="nm">Quíron, o morador de nascença</span><span class="tz">O único corpo que ocupa esta porta no seu mapa de nascença</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in">
+        <div class="psel">Quíron natal em Leão, casa 1, em quadratura com Vênus e Plutão, em sextil com o Sol, em trígono com o Nodo Norte; em 2026 Júpiter pousa sobre ele</div>
+        <div class="pread">
+          <p>Ele é a parte sua que aprendeu cedo o que é se mostrar e não ser recebida por inteiro. É por isso que a ousadia custa mais caro para você do que parece custar para os outros. Mas é dele também o olhar fino para perceber a insegurança de quem chega perto, e esse olhar pode virar ofício.</p>
+          <p>A dúvida não é sinal de que você está no caminho errado. É a assinatura dele, e vai estar com você até nos acertos. Aprender a agir com ela do lado é o trabalho.</p>
+        </div>
+        <div class="pperg"><span class="pperg-l">a pergunta que ele faz</span>O que eu faria hoje se aceitasse que a dúvida vai estar comigo, e fosse mesmo assim?</div>
+      </div></div>
+    </div>
+
+    <div class="fold planeta">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">☾</span>
+        <span class="fold-t"><span class="nm">A Lua do ano, colada na porta</span><span class="tz">Colada na porta, sentindo antes de agir</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in">
+        <div class="psel">Lua da revolução em 22°42' Escorpião, casa 12, em conjunção com o Ascendente do ano (4,8°), em quadratura com Júpiter, em conjunção com Vênus e Plutão natais</div>
+        <div class="pread">
+          <p>Ela é o que você precisa sentir para se sentir segura este ano. Por isso o corpo responde antes da cabeça: você entra nos lugares sentindo o ambiente inteiro, as intenções, o que não foi dito. É um radar valioso, e cansa. O que você sente por dentro vem forte, e mexe no seu jeito de amar e de se doar.</p>
+          <p>O cuidado é com o sim dito por emoção, num dia sensível, e sentido como peso depois. O que ela pede é uma pausa curta entre sentir e responder, só o tempo de o corpo dizer o que quer.</p>
+        </div>
+        <div class="pperg"><span class="pperg-l">a pergunta que ela faz</span>O que o meu corpo já respondeu, e eu ainda estou tentando convencer a minha cabeça do contrário?</div>
+      </div></div>
+    </div>
+
+    <div class="fold planeta">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">☊</span>
+        <span class="fold-t"><span class="nm">O Nodo Norte, batendo de lado</span><span class="tz">O ponto que puxa pro desconforto de crescer</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in">
+        <div class="psel">Nodo Norte da revolução em 28°28' Aquário, casa 4, em quadratura quase exata com o Ascendente do ano (1,0°), em oposição a Júpiter</div>
+        <div class="pread">
+          <p>É a direção que o ano aponta, e ela aponta de lado, não de frente. Por isso crescer este ano não parece confortável: vem como incômodo, como o convite para o qual você não se sente pronta. Ele mora na área da família e das raízes, então parte desse crescimento passa por se posicionar diante de quem é de casa e por deixar de ser só a versão que todos já conhecem.</p>
+          <p>Ao mesmo tempo, algo te puxa para crescer lá fora e algo te segura nas raízes. O ano não pede que você escolha um lado só.</p>
+        </div>
+        <div class="pperg"><span class="pperg-l">a pergunta que ele faz</span>Qual parte de mim eu ainda mantenho pequena para caber no lugar que já me deram?</div>
+      </div></div>
+    </div>
+
+    <div class="fold planeta">
+      <button class="fold-head" aria-expanded="false">
+        <span class="fold-glyph">♃</span>
+        <span class="fold-t"><span class="nm">Júpiter, a porta grande</span><span class="tz">A oportunidade que chega em tamanho de vitrine</span></span>
+        <span class="chev">›</span>
+      </button>
+      <div class="fold-body"><div class="fold-in">
+        <div class="psel">Júpiter da revolução em 21°42' Leão, casa 10, em quadratura com o Ascendente do ano (5,8°), em conjunção com o Quíron natal (0,6°), em sextil com o Sol do ano (1,6°)</div>
+        <div class="pread">
+          <p>Ele traz oportunidade em tamanho de vitrine, na área do trabalho e da imagem pública. Pede presença: ser vista liderando, aparecendo, assumindo. E o convite não vem arrumadinho, vem com um “agora” dentro.</p>
+          <p>Existe base para sustentar o que você escolher: o que te dá energia este ano está do mesmo lado desse convite. Você não precisa se sentir pronta para ter condições.</p>
+        </div>
+        <div class="pperg"><span class="pperg-l">a pergunta que ele faz</span>Que parte de mim já está pronta, e que parte ainda está esperando permissão?</div>
+      </div></div>
+    </div>
+  </section>
+
+
+  <section class="grupo">
+    <p class="grupo-lbl">leve pra nossa conversa</p>
+    <h2 class="grupo-h">A dinâmica da semana</h2>
+    <p class="grupo-sub">Escreve aqui embaixo e toque em copiar, pra colar na nossa conversa.</p>
+
+    <div class="gcard"><p class="gq">1. Qual frase desta página mais bateu em você?</p><textarea data-k="q1" placeholder="a frase entre aspas, ou outra que ficou na sua cabeça"></textarea></div>
+    <div class="gcard"><p class="gq">2. Onde você vê essa voz avaliadora que pesa tudo na sua vida hoje, e de quem é a voz dela?</p><textarea data-k="q2" placeholder="uma situação real, recente, e a voz que você reconhece nela"></textarea></div>
+    <div class="gcard"><p class="gq">3. Esta semana, decida uma coisa pequena em até 24 horas, sem consultar ninguém. O que você vai decidir?</p><textarea data-k="q3" placeholder="o que é, e o que o seu corpo fez depois"></textarea></div>
+
+    <div class="copybar">
+      <button class="copybtn" id="copy">copiar pra enviar</button>
+      <span class="saved" id="saved"></span>
+    </div>
+  </section>
+
+  <div class="fecho">
+    <p class="om">pra levar com você</p>
+    <p>Quando você se imagina ocupando um lugar sem ter certeza de merecê-lo, o corpo aperta ou abre? E o que ele está tentando te dizer?</p>
+  </div>
+
+  <p class="assin">Mariana <span class="dot-sep">·</span> Revolução Solar 2026 <span class="dot-sep">·</span> Casa 1</p>
+
+</div>
+
+<script>
+  (function(){
+    var b=document.getElementById('seloBtn'),s=document.getElementById('selo');
+    b.addEventListener('click',function(){
+      var o=b.classList.toggle('open');
+      b.setAttribute('aria-expanded',o);
+      s.style.maxHeight=o?s.scrollHeight+'px':'0px';
+    });
+  })();
+  (function(){
+    document.querySelectorAll('.fold').forEach(function(f){
+      var h=f.querySelector('.fold-head'),bd=f.querySelector('.fold-body');
+      h.addEventListener('click',function(){
+        var o=f.classList.toggle('open');
+        h.setAttribute('aria-expanded',o);
+        bd.style.maxHeight=o?bd.scrollHeight+'px':'0px';
+      });
+    });
+  })();
+  (function(){
+    var bs=document.querySelectorAll('.beat');
+    function rev(el){el.classList.add('in');}
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){rev(e.target);io.unobserve(e.target);}});},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+      bs.forEach(function(b){io.observe(b);});
+    } else { bs.forEach(rev); }
+    function seen(){var vh=window.innerHeight||document.documentElement.clientHeight;bs.forEach(function(b){if(b.getBoundingClientRect().top<vh*0.98)rev(b);});}
+    window.addEventListener('load',function(){setTimeout(seen,150);});
+    setTimeout(seen,700);
+
+    var sec=document.getElementById('roteiro'),fill=document.getElementById('fill'),t=false;
+    function u(){
+      var r=sec.getBoundingClientRect(),vh=window.innerHeight||document.documentElement.clientHeight,tot=r.height,p=Math.min(Math.max(vh*0.62-r.top,0),tot);
+      fill.style.height=(tot>0?p/tot*100:0).toFixed(1)+'%';
+      t=false;
+    }
+    function o(){if(!t){requestAnimationFrame(u);t=true;}}
+    window.addEventListener('scroll',o,{passive:true});
+    window.addEventListener('resize',o,{passive:true});
+    u();
+  })();
+  (function(){
+    var sv=document.getElementById('saved');
+    document.getElementById('copy').addEventListener('click',function(){
+      var out=['Casa 1, a porta de entrada:',''];
+      document.querySelectorAll('.grupo .gcard').forEach(function(c){
+        var q=c.querySelector('.gq').textContent,a=c.querySelector('textarea').value.trim();
+        out.push(q);
+        out.push(a?a:'(não escrevi nada aqui)');
+        out.push('');
+      });
+      var txt=out.join('\n');
+      function done(){sv.textContent='copiado';setTimeout(function(){sv.textContent='';},1800);}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,done);}
+      else{var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(t);done();}
+    });
+  })();
+</script>
+</body>
+</html>
